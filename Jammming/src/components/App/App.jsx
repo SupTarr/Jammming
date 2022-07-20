@@ -5,6 +5,7 @@ import "./App.css";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import SearchResults from "../SearchResults/SearchResults.jsx";
 import Playlist from "../Playlist/Playlist.jsx";
+import Spotify from "../../utils/Spotify";
 
 const App = (props) => {
   const [searchResults, setSearchResults] = useState([
@@ -38,6 +39,10 @@ const App = (props) => {
     setPlaylistName(name);
   };
 
+  const savePlaylist = () => {
+
+  }
+
   return (
     <div>
       <h1>
@@ -55,6 +60,7 @@ const App = (props) => {
             playlistTracks={playlistTracks}
             onRemove={removeTrack}
             onNameChange={updatePlaylistName}
+            onSave={savePlaylist}
           />
         </div>
       </div>
