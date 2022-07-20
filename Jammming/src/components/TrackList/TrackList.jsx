@@ -3,7 +3,6 @@ import "./TrackList.css";
 import Track from "../Track/Track.jsx";
 
 const TrackList = (props) => {
-  
   return (
     <div className="TrackList">
       {
@@ -12,6 +11,7 @@ const TrackList = (props) => {
             <Track
               track={track}
               key={track.id}
+              onAdd={props.onAdd}
             />
           );
         })
