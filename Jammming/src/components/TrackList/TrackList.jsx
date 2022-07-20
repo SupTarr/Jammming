@@ -1,11 +1,22 @@
 //import TrackList.css
 import "./TrackList.css";
-import "../Track/Track.jsx";
+import Track from "../Track/Track.jsx";
 
-const TrackList = () => {
+const TrackList = (props) => {
+  
   return (
     <div className="TrackList">
-      {/* You will add a map method that renders a set of Track components */}
+      {
+        props.tracks.map((track) => {
+          return (
+            <Track
+              track={track}
+              key={track.id}
+            />
+          );
+        })
+      }
+      <h2></h2>
     </div>
   );
 };
