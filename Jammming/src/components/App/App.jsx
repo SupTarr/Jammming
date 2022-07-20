@@ -40,6 +40,10 @@ const App = (props) => {
   };
 
   const savePlaylist = () => {
+    
+  }
+  
+  const search = () => {
 
   }
 
@@ -49,7 +53,7 @@ const App = (props) => {
         Ja<span className="highlight">mmm</span>ing
       </h1>
       <div className="App">
-        <SearchBar />
+        <SearchBar onResult={search} />
         <div className="App-playlist">
           <SearchResults 
             searchResults={searchResults} 
