@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "react-dom";
 //import SearchResults.css
 import "./SearchResults.css";
 import TrackList from "../TrackList/TrackList.jsx";

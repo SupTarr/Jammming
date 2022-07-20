@@ -1,3 +1,4 @@
+import "react-dom";
 //import SearchBar.css
 import "./SearchBar.css";
 

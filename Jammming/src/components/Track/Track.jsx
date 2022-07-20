@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import "react-dom";
+
 //import Track.css
 import "./Track.css";
 
@@ -6,7 +8,7 @@ const Track = (props) => {
   const renderAction = () => {
     if (props.isRemoval) {
       return (
-        <button className="Track-action" onClick={props.onRemove}>-</button>
+        <button className="Track-action" onClick={() => removeTrack()}>-</button>
       );
     } else {
       return (
@@ -17,6 +19,10 @@ const Track = (props) => {
 
   const addTrack = () => {
     return props.onAdd(props.track);
+  }
+
+  const removeTrack = () => {
+    return props.onRemove(props.track);
   }
 
   return (
