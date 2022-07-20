@@ -1,7 +1,8 @@
 //import App.css
 import "./App.css";
-
-//import 3 components
+import "../SearchBar/SearchBar.jsx";
+import "../SearchResults/SearchResults.jsx";
+import "../Playlist/Playlist.jsx";
 
 const App = () => {
   return (
@@ -10,10 +11,10 @@ const App = () => {
         Ja<span className="highlight">mmm</span>ing
       </h1>
       <div className="App">
-        { /* <SearchBar /> */ }
+        {/* <SearchBar /> */}
         <div className="App-playlist">
-            { /* <SearchResults /> */ }
-            { /* <SearchPlaylist /> */ }
+            {/* <SearchResults /> */}
+            {/* <Playlist /> */}
         </div>
       </div>
     </div>
