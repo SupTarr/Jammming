@@ -8,7 +8,7 @@ import Playlist from "../Playlist/Playlist.jsx";
 import Spotify from "../../utils/Spotify";
 import { useEffect } from "react";
 
-const App = (props) => {
+const App = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("New Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
@@ -33,7 +33,7 @@ const App = (props) => {
 
   const savePlaylist = () => {
     const trackURIs = playlistTracks.map((track) => track.uri);
-    Spotify.savePlaylist(trackURIs, playlistName);
+    Spotify.savePlaylist(playlistName, trackURIs);
     setPlaylistName("New Playlist");
     setPlaylistTracks([]);
   };
