@@ -1,7 +1,7 @@
 // TODO: Get Client ID from https://developer.spotify.com/dashboard/ and put it here
 const clientId = "abc3c9df26fc485d884bc0cceda55ef6";
 
-const redirectUri = "http://127.0.0.1:5173/";
+const redirectUri = "https://tarjammming.surge.sh/";
 const spotifyUrl = `https://accounts.spotify.com/authorize?response_type=token&scope=playlist-modify-public&client_id=${clientId}&redirect_uri=${redirectUri}`;
 let accessToken = undefined;
 let expiresIn = undefined;
