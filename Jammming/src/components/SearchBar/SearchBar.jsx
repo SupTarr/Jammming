@@ -5,12 +5,13 @@ import "./SearchBar.css";
 
 const SearchBar = (props) => {
   const [term, setTerm] = useState("");
-  const search = () => {
-    props.onSearch(term);
+
+  const search = (term) => {
+    props.onResult(term);
   }
 
   const handleTermChange = (event) => {
-    setTerm({term: event.target.value});
+    setTerm(event.target.value);
   }
 
   return (
@@ -21,7 +22,7 @@ const SearchBar = (props) => {
       />
       <button 
         className="SearchButton"
-        onClick={props.onResult}>
+        onClick={() => search(term)}>
           SEARCH
       </button>
     </div>

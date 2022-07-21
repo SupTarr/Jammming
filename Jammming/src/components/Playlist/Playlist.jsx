@@ -14,6 +14,7 @@ const Playlist = (props) => {
       <input 
         value={props.playlistName}
         onChange={handleNameChange}
+        placeholder="New Playlist"
       />
       {/* Add a TrackList component */}
       <TrackList 

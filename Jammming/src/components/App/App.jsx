@@ -9,18 +9,9 @@ import Spotify from "../../utils/Spotify";
 import { useEffect } from "react";
 
 const App = (props) => {
-  const [searchResults, setSearchResults] = useState([
-    { name: "name1", artist: "artist1", album: "album1", id: "id1" },
-    { name: "name2", artist: "artist2", album: "album2", id: "id2" },
-    { name: "name3", artist: "artist3", album: "album3", id: "id3" },
-    { name: "name4", artist: "artist4", album: "album4", id: "id4" },
-  ]);
+  const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("New Playlist");
-  const [playlistTracks, setPlaylistTracks] = useState([
-    { name: "name1", artist: "artist1", album: "album1", id: "id1" },
-    { name: "name2", artist: "artist2", album: "album2", id: "id2" },
-    { name: "name3", artist: "artist3", album: "album3", id: "id3" },
-  ]);
+  const [playlistTracks, setPlaylistTracks] = useState([]);
 
   const addTrack = (track) => {
     if (playlistTracks.find((savedTrack) => savedTrack.id === track.id)) {
@@ -41,17 +32,21 @@ const App = (props) => {
   };
 
   const savePlaylist = () => {
-    
-  }
-  
+    const trackURIs = playlistTracks.map((track) => track.uri);
+    Spotify.savePlaylist(trackURIs, playlistName);
+    setPlaylistName("New Playlist");
+    setPlaylistTracks([]);
+  };
+
   const search = (term) => {
-    Spotify.search(term)
-    console.log(Spotify.search(term));
-  }
+    Spotify.search(term).then((searchResults) => {
+      setSearchResults(searchResults);
+    });
+  };
 
   useEffect(() => {
     Spotify.getAccessToken();
-  }, [])
+  }, []);
 
   return (
     <div>
@@ -61,10 +56,7 @@ const App = (props) => {
       <div className="App">
         <SearchBar onResult={(term) => search(term)} />
         <div className="App-playlist">
-          <SearchResults 
-            searchResults={searchResults} 
-            onAdd={addTrack} 
-          />
+          <SearchResults searchResults={searchResults} onAdd={addTrack} />
           <Playlist
             playlistName={playlistName}
             playlistTracks={playlistTracks}
