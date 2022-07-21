@@ -6,6 +6,7 @@ import SearchBar from "../SearchBar/SearchBar.jsx";
 import SearchResults from "../SearchResults/SearchResults.jsx";
 import Playlist from "../Playlist/Playlist.jsx";
 import Spotify from "../../utils/Spotify";
+import { useEffect } from "react";
 
 const App = (props) => {
   const [searchResults, setSearchResults] = useState([
@@ -43,9 +44,14 @@ const App = (props) => {
     
   }
   
-  const search = () => {
-
+  const search = (term) => {
+    Spotify.search(term)
+    console.log(Spotify.search(term));
   }
+
+  useEffect(() => {
+    Spotify.getAccessToken();
+  }, [])
 
   return (
     <div>
@@ -53,7 +59,7 @@ const App = (props) => {
         Ja<span className="highlight">mmm</span>ing
       </h1>
       <div className="App">
-        <SearchBar onResult={search} />
+        <SearchBar onResult={(term) => search(term)} />
         <div className="App-playlist">
           <SearchResults 
             searchResults={searchResults} 

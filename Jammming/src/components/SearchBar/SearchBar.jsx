@@ -10,7 +10,7 @@ const SearchBar = (props) => {
   }
 
   const handleTermChange = (event) => {
-    useState({term: event.target.value});
+    setTerm({term: event.target.value});
   }
 
   return (
@@ -19,7 +19,11 @@ const SearchBar = (props) => {
         placeholder="Enter A Song, Album, or Artist" 
         onChange={handleTermChange}
       />
-      <button className="SearchButton">SEARCH</button>
+      <button 
+        className="SearchButton"
+        onClick={props.onResult}>
+          SEARCH
+      </button>
     </div>
   );
 };

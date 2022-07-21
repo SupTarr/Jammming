@@ -24,8 +24,9 @@ const Spotify = {
   },
 
   async search(term) {
-    const replaceEmptySpace = term.replace(" ", "%20");
-    const searchUrl = `https://api.spotify.com/v1/search?type=track&q=${replaceEmptySpace}`;
+    // const replaceEmptySpace = term.replace(" ", "%20");
+    // const searchUrl = `https://api.spotify.com/v1/search?type=track&q=${replaceEmptySpace}`;
+    const searchUrl = `https://api.spotify.com/v1/search?type=track&q=${term}`;
     return fetch(searchUrl, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -71,7 +72,8 @@ const Spotify = {
             Authorization: `Bearer ${accessToken}`,
           },
           body: JSON.stringify({
-            uris: trackIds.map((id) => "spotify:track:".concat(id)),
+            // uris: trackIds.map((id) => "spotify:track:".concat(id)),
+            uris: trackIds
           }),
         });
       }
