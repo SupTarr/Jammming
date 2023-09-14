@@ -1,5 +1,7 @@
 nav {
   display: flex;
+  position: sticky;
+  top: 0;
   background-color: #010c3f;
   justify-content: space-around;
   align-items: center;
