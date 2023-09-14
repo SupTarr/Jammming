@@ -1,6 +1,6 @@
 const clientId = import.meta.env.VITE_API_KEY;
 const redirectUri = import.meta.env.VITE_URL;
-const spotifyUrl = `https://accounts.spotify.com/authorize?response_type=token&scope=playlist-modify-public&client_id=${clientId}&redirect_uri=${redirectUri}`;
+const spotifyUrl = `https://accounts.spotify.com/authorize?response_type=token&scope=playlist-modify-public&client_id=${clientId}&redirect_uri=${redirectUri}&&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state`;
 let accessToken = undefined;
 let expiresIn = undefined;
 
@@ -70,7 +70,7 @@ const Spotify = {
           },
           body: JSON.stringify({
             // uris: trackIds.map((id) => "spotify:track:".concat(id)),
-            uris: trackIds
+            uris: trackIds,
           }),
         });
       }

@@ -23,7 +23,7 @@ const App = () => {
 
   const removeTrack = (track) => {
     setPlaylistTracks(
-      playlistTracks.filter((savedTrack) => savedTrack.id !== track.id)
+      playlistTracks.filter((savedTrack) => savedTrack.id !== track.id),
     );
   };
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "react-dom";
 //import SearchResults.css
 import "./SearchResults.css";
@@ -9,13 +9,13 @@ const SearchResults = (props) => {
     <div className="SearchResults">
       <h2>Results</h2>
       {/* Add a TrackList component */}
-      <TrackList 
-        tracks={props.searchResults} 
-        onAdd={props.onAdd} 
-        isRemoval={false} 
+      <TrackList
+        tracks={props.searchResults}
+        onAdd={props.onAdd}
+        isRemoval={false}
       />
     </div>
-  )
-}
+  );
+};
 
-export default SearchResults
+export default SearchResults;
