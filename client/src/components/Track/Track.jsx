@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import "react-dom";
-
-//import Track.css
 import "./Track.css";
 
 const Track = (props) => {

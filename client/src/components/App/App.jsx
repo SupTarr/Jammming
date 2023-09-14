@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "react-dom";
-//import App.css
 import "./App.css";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import SearchResults from "../SearchResults/SearchResults.jsx";
