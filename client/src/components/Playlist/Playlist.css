@@ -4,10 +4,13 @@
   align-items: center;
   overflow-y: scroll;
   width: 37%;
+  min-height: 200px;
   max-height: 950px;
   padding: 2.27rem 1.16rem;
   background-color: rgba(1, 12, 63, 0.7);
-  box-shadow: 0 4px 2px 2px #000000;
+  -webkit-box-shadow: 17px 20px 31px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 17px 20px 31px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 17px 20px 31px -1px rgba(0, 0, 0, 0.75);
 }
 
 .Playlist input {
