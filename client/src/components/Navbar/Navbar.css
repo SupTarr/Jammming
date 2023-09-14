@@ -2,4 +2,20 @@ nav {
   display: flex;
   background-color: #010c3f;
   justify-content: space-around;
+  align-items: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+nav a:hover {
+  background-color: #6c41ec;
+  padding: 0.5rem;
+  border-radius: 54px;
+  transition: all 0.5s ease-in-out;
 }
