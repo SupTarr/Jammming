@@ -1,31 +1,54 @@
-# Jammming ( function component )
+# Jammming
 
-### [Completed Project](https://tarjammming.surge.sh/)
+## About The Project
 
-## Install
+In [this project](https://www.codecademy.com/paths/build-web-apps-with-react/tracks/react-capstone/modules/jammming-capstone/projects/jammming-prj), you will build a React web application called **Jammming**. You will use your knowledge of React components, passing state, and requests with the `Spotify API` to build a website that allows users to search the Spotify library, create a custom playlist, then save it to their Spotify account.
+
+## Technologies
+
+This project was created with:
+
+- HTML
+- CSS
+- JavaScript
+- React
+- Express
+- Git and GitHub
+- HTTP Requests and Responses
+- Authentication
+
+## Installation
+
+Clone the project
 
 ```sh
-npm install
+git clone https://github.com/SupTarr/Ravenous.git
 ```
 
-## Usage
+### Front End
+
+Change directory to client directory:
+
+```sh
+cd client
+```
+
+In the client directory, you can run:
 
 ```sh
 npm run dev
 ```
 
-## Build
+### Back End
+
+Open new terminal and change directory to server directory:
 
 ```sh
-npm run build
+cd server
 ```
 
-## [View in codecademy](https://www.codecademy.com/paths/build-web-apps-with-react/tracks/react-capstone/modules/jammming-capstone/projects/jammming-prj)
+In the server directory, you can run:
 
-In this project, you will build a React web application called Jammming. You will use your knowledge of React components, passing state, and requests with the Spotify API to build a website that allows users to search the Spotify library, create a custom playlist, then save it to their Spotify account.
-
-We’ve broken the Jammming project into 13 sections. Each section contains a descriptive header with an introductory step followed by a set of steps that guide you to the outcome. The first step of each section will explain the goal and provide a brief overview of how we’ll accomplish it. Before you start the second step, try to plan how you would complete the section. As you finish the rest of the steps, reflect on how your solution compares to ours.
-
-This is a long project, but we’ll be with you every step of the way. Whether you’re completing assessments without the additional steps or banging your head against the wall trying to understand a hint, always use best practices and reflect on your growth. If you get stuck or just want to see how a seasoned developer tackles this project, click “get help” to see a walkthrough video.
-
-Good luck!
+```sh
+nodemon index.js
+```
