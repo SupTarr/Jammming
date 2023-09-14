@@ -24,8 +24,8 @@ app.post("/refresh", (req, res) => {
     .refreshAccessToken()
     .then((data) => {
       res.json({
-        accessToken: data.body.accessToken,
-        expiresIn: data.body.expiresIn,
+        accessToken: data.body.access_token,
+        expiresIn: data.body.expires_in,
       });
     })
     .catch((err) => {
@@ -52,7 +52,9 @@ app.post("/login", (req, res) => {
       });
     })
     .catch((err) => {
-      res.sendStatus(400);
+      res.status(400).send({
+        message: err,
+      });
     });
 });
 
