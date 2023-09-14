@@ -53,7 +53,7 @@ const App = () => {
 
   return (
     <div>
-      <Navbar code={code} />
+      <Navbar code={code} onLogout={() => setCode("")} />
       <div className="App">
         <SearchBar onResult={(term) => search(term)} />
         <div className="App-playlist">
