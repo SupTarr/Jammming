@@ -22,7 +22,7 @@ This project was created with:
 Clone the project
 
 ```sh
-git clone https://github.com/SupTarr/Ravenous.git
+git clone https://github.com/SupTarr/Jammming.git
 ```
 
 ### Front End
