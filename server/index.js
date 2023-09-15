@@ -7,21 +7,7 @@ const SpotifyWebApi = require("spotify-web-api-node");
 
 const app = express();
 
-const whiteList = [
-  "http://localhost:5174",
-  "https://jammming.suptarr.vercel.app/",
-];
-const corsOption = {
-  origin: (origin, callback) => {
-    if (whiteList.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  optionSuccessStatus: 200,
-};
-app.use(cors(corsOption));
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
