@@ -30,7 +30,10 @@ h2 {
 }
 
 .App {
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-height: calc(100vh - 60px);
   height: 100%;
   padding: 0 17% 10% 17%;
@@ -41,6 +44,30 @@ h2 {
   font-family: "Work Sans", sans-serif;
   font-weight: 500;
   color: #fff;
+}
+
+.login-button {
+  display: block;
+  cursor: pointer;
+  width: 20rem;
+  padding: 2rem 0;
+  border-radius: 54px;
+  border-width: 0px;
+  background-color: #6c41ec;
+  text-align: center;
+  font-size: 0.83rem;
+  transition: background-color 0.25s;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  font-size:1.5rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+.login-button:hover {
+  background-color: #fff;
+  color: #6c41ec;
 }
 
 .App-playlist {
