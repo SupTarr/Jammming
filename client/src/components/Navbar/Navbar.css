@@ -2,6 +2,7 @@ nav {
   display: flex;
   position: sticky;
   top: 0;
+  height: 60px;
   background-color: #010c3f;
   justify-content: space-around;
   align-items: center;
