@@ -77,16 +77,18 @@ app.post("/search", async (req, res) => {
               if (image.height < smallest.height) return image;
               return smallest;
             },
-            track.album.images[0]
+            track.album.images[0],
           );
 
           return {
+            id: track.id,
             artist: track.artists[0].name,
             title: track.name,
             uri: track.uri,
+            album: track.album.name,
             albumUrl: smallestAlbumImage.url,
           };
-        })
+        }),
       );
     })
     .catch((err) => {
