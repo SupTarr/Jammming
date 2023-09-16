@@ -80,6 +80,12 @@ h2 {
   width: 100%;
 }
 
+@media only screen and (max-width: 450px) {
+  .App {
+    padding: 5%;
+  }
+}
+
 @media only screen and (max-width: 1020px) {
   .App-playlist {
     align-items: center;
