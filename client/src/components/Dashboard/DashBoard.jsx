@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import SearchResults from "../SearchResults/SearchResults.jsx";
 import Playlist from "../Playlist/Playlist.jsx";
-
-import Spotify from "../../utils/Spotify.js";
 import useAuth from "../../useAuth.jsx";
+import Spotify from "../../utils/Spotify.js";
 
 function DashBoard({ code }) {
   const [searchResults, setSearchResults] = useState([]);
@@ -46,7 +45,7 @@ function DashBoard({ code }) {
 
   return (
     <>
-      <SearchBar onResult={(term) => search(term)} />
+      <SearchBar accessToken={accessToken} onResult={(term) => search(term)} />
       <div className="App-playlist">
         <SearchResults searchResults={searchResults} onAdd={addTrack} />
         <Playlist

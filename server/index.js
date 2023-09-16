@@ -59,6 +59,35 @@ app.post("/login", (req, res) => {
     });
 });
 
+app.post("/search", async (req, res) => {
+  const spotifyApi = new SpotifyWebApi({
+    redirectUri: process.env.REDIRECT_URI,
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    accessToken: req.body.accessToken,
+  });
+
+  spotifyApi
+    .searchTracks(req.body.term)
+    .then((data) => {
+      res.send(
+        data.body.tracks.items.map((track) => {
+          return {
+            artist: track.artists[0].name,
+            title: track.name,
+            uri: track.uri,
+            albumUrl: track.album.images[0].url,
+          };
+        }),
+      );
+    })
+    .catch((err) => {
+      res.status(400).send({
+        message: err,
+      });
+    });
+});
+
 app.get("/lyrics", async (req, res) => {
   const lyrics =
     (await lyricsFinder(req.query.artist, req.query.track)) ||

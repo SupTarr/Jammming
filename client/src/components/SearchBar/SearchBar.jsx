@@ -1,12 +1,24 @@
-import React, { useState } from "react";
-import "react-dom";
+import { useState } from "react";
+import axios from "axios";
 import "./SearchBar.css";
 
-const SearchBar = (props) => {
+const backend = import.meta.env.VITE_BACKEND_URL;
+
+const SearchBar = ({ accessToken }) => {
   const [term, setTerm] = useState("");
 
   const search = (term) => {
-    props.onResult(term);
+    axios
+      .post(`${backend}search`, {
+        accessToken,
+        term,
+      })
+      .then((res) => {
+        setTracks(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const handleTermChange = (event) => {
