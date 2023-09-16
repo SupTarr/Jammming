@@ -6,15 +6,19 @@ const SearchBar = ({ onTermChange, onSearch }) => {
   };
 
   return (
-    <div className="SearchBar">
+    <form
+      className="SearchBar"
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSearch();
+      }}
+    >
       <input
         placeholder="Enter A Song, Album, or Artist"
         onChange={handleTermChange}
       />
-      <button className="SearchButton" onClick={() => onSearch()}>
-        SEARCH
-      </button>
-    </div>
+      <input type="submit" className="SearchButton" value="SEARCH" />
+    </form>
   );
 };
 
