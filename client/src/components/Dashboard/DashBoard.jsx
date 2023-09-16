@@ -30,15 +30,13 @@ function DashBoard({ code }) {
   };
 
   const addTrack = (track) => {
-    setSearchResults(
-      searchResults.filter((savedTrack) => savedTrack.id !== track.id)
-    );
+    setSearchResults(searchResults.filter((result) => result.id !== track.id));
     setPlaylistTracks([...playlistTracks, track]);
   };
 
   const removeTrack = (track) => {
     setPlaylistTracks(
-      playlistTracks.filter((savedTrack) => savedTrack.id !== track.id)
+      playlistTracks.filter((savedTrack) => savedTrack.id !== track.id),
     );
   };
 

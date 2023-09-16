@@ -29,6 +29,10 @@ h2 {
   font-size: 1.55rem;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 .App {
   display: flex;
   flex-direction: column;
