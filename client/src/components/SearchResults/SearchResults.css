@@ -2,17 +2,25 @@
   width: 50%;
   min-height: 200px;
   max-height: 950px;
+  overflow-y: auto;
   padding: 2.27rem 1.16rem;
-  overflow-y: scroll;
   background-color: rgba(1, 12, 63, 0.7);
   -webkit-box-shadow: 17px 20px 31px -1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 17px 20px 31px -1px rgba(0, 0, 0, 0.75);
   box-shadow: 17px 20px 31px -1px rgba(0, 0, 0, 0.75);
 }
 
-::-webkit-scrollbar {
-  width: 0px;
+.SearchResults::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.SearchResults::-webkit-scrollbar-track {
   background: transparent;
+}
+
+.SearchResults::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 50px;
 }
 
 @media only screen and (max-width: 1020px) {
