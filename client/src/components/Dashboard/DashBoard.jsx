@@ -75,7 +75,7 @@ function DashBoard({ code }) {
           onNameChange={updatePlaylistName}
           onSave={savePlaylist}
         />
-        <Player track={selectedTrack} />
+        {selectedTrack && <Player track={selectedTrack} />}
       </div>
     </>
   );
