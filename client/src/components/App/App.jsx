@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "react-dom";
 import "./App.css";
 import Navbar from "../Navbar/Navbar.jsx";
-import DashBoard from "../Dashboard/DashBoard";
+import DashBoard from "../Dashboard/DashBoard.jsx";
 
 const clientId = import.meta.env.VITE_API_KEY;
 const redirectUri = import.meta.env.VITE_FRONTEND_URL;
