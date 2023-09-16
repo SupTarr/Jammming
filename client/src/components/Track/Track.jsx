@@ -1,5 +1,5 @@
 import React from "react";
-import "react-dom";
+import { BiPlay } from "react-icons/bi";
 import "./Track.css";
 
 const Track = (props) => {
@@ -42,7 +42,9 @@ const Track = (props) => {
         <h3>{props.track.name}</h3>
         <p>{`${props.track.artist} | ${props.track.album}`}</p>
       </div>
-      <p onClick={() => playTrack()}>Play</p>
+      <div className="play-icon" onClick={() => playTrack()}>
+        <BiPlay />
+      </div>
       {renderAction()}
     </div>
   );
