@@ -80,7 +80,7 @@ h2 {
   width: 100%;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 600px) {
   .App {
     padding: 5%;
     padding-bottom: 10%;
