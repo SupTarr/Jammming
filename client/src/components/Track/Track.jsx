@@ -23,6 +23,10 @@ const Track = (props) => {
     return props.onAdd(props.track);
   };
 
+  const playTrack = () => {
+    return props.onPlay(props.track?.uri);
+  };
+
   const removeTrack = () => {
     return props.onRemove(props.track);
   };
@@ -38,6 +42,7 @@ const Track = (props) => {
         <h3>{props.track.name}</h3>
         <p>{`${props.track.artist} | ${props.track.album}`}</p>
       </div>
+      <p onClick={() => playTrack()}>Play</p>
       {renderAction()}
     </div>
   );
