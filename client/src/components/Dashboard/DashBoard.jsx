@@ -1,28 +1,44 @@
 import React, { useState } from "react";
+import axios from "axios";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import SearchResults from "../SearchResults/SearchResults.jsx";
 import Playlist from "../Playlist/Playlist.jsx";
 import useAuth from "../../useAuth.jsx";
-import Spotify from "../../utils/Spotify.js";
+
+const backend = import.meta.env.VITE_BACKEND_URL;
 
 function DashBoard({ code }) {
+  const accessToken = useAuth(code);
+
+  const [term, setTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("New Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
-  const accessToken = useAuth(code);
+  const search = (term, accessToken) => {
+    axios
+      .post(`${backend}search`, {
+        accessToken,
+        term,
+      })
+      .then((res) => {
+        setSearchResults(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const addTrack = (track) => {
-    if (playlistTracks.find((savedTrack) => savedTrack.id === track.id)) {
-      return alert("Track already exists");
-    } else {
-      setPlaylistTracks([...playlistTracks, track]);
-    }
+    setSearchResults(
+      searchResults.filter((savedTrack) => savedTrack.id !== track.id)
+    );
+    setPlaylistTracks([...playlistTracks, track]);
   };
 
   const removeTrack = (track) => {
     setPlaylistTracks(
-      playlistTracks.filter((savedTrack) => savedTrack.id !== track.id),
+      playlistTracks.filter((savedTrack) => savedTrack.id !== track.id)
     );
   };
 
@@ -31,21 +47,16 @@ function DashBoard({ code }) {
   };
 
   const savePlaylist = () => {
-    const trackURIs = playlistTracks.map((track) => track.uri);
-    Spotify.savePlaylist(playlistName, trackURIs);
     setPlaylistName("New Playlist");
     setPlaylistTracks([]);
   };
 
-  const search = (term) => {
-    Spotify.search(term).then((searchResults) => {
-      setSearchResults(searchResults);
-    });
-  };
-
   return (
     <>
-      <SearchBar accessToken={accessToken} onResult={(term) => search(term)} />
+      <SearchBar
+        onTermChange={setTerm}
+        onSearch={() => search(term, accessToken)}
+      />
       <div className="App-playlist">
         <SearchResults searchResults={searchResults} onAdd={addTrack} />
         <Playlist

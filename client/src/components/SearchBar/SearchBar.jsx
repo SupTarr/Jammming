@@ -1,28 +1,8 @@
-import { useState } from "react";
-import axios from "axios";
 import "./SearchBar.css";
 
-const backend = import.meta.env.VITE_BACKEND_URL;
-
-const SearchBar = ({ accessToken }) => {
-  const [term, setTerm] = useState("");
-
-  const search = (term) => {
-    axios
-      .post(`${backend}search`, {
-        accessToken,
-        term,
-      })
-      .then((res) => {
-        setTracks(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
+const SearchBar = ({ onTermChange, onSearch }) => {
   const handleTermChange = (event) => {
-    setTerm(event.target.value);
+    onTermChange(event.target.value);
   };
 
   return (
@@ -31,7 +11,7 @@ const SearchBar = ({ accessToken }) => {
         placeholder="Enter A Song, Album, or Artist"
         onChange={handleTermChange}
       />
-      <button className="SearchButton" onClick={() => search(term)}>
+      <button className="SearchButton" onClick={() => onSearch()}>
         SEARCH
       </button>
     </div>
