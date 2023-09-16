@@ -12,6 +12,7 @@ function DashBoard({ code }) {
   const accessToken = useAuth(code);
 
   const [term, setTerm] = useState("");
+  const [selectedTrack, setSelectedTrack] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("New Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
@@ -28,6 +29,10 @@ function DashBoard({ code }) {
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  const playTrack = (trackUri) => {
+    setSelectedTrack(trackUri);
   };
 
   const addTrack = (track) => {
@@ -57,15 +62,20 @@ function DashBoard({ code }) {
         onSearch={() => search(term, accessToken)}
       />
       <div className="App-playlist">
-        <SearchResults searchResults={searchResults} onAdd={addTrack} />
+        <SearchResults
+          searchResults={searchResults}
+          onAdd={addTrack}
+          onPlay={playTrack}
+        />
         <Playlist
           playlistName={playlistName}
           playlistTracks={playlistTracks}
+          onPlay={playTrack}
           onRemove={removeTrack}
           onNameChange={updatePlaylistName}
           onSave={savePlaylist}
         />
-        <Player accessToken={accessToken} />
+        <Player track={selectedTrack} />
       </div>
     </>
   );
