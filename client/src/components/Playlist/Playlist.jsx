@@ -17,6 +17,7 @@ const Playlist = (props) => {
       />
       <TrackList
         tracks={props.playlistTracks}
+        onPlay={props.onPlay}
         onRemove={props.onRemove}
         isRemoval={true}
       />
