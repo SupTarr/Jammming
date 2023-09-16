@@ -15,8 +15,10 @@ function Player({ track }) {
           style={{
             position: "fixed",
             width: "100vw",
+            left: "0px",
             bottom: "0px",
             height: "80px",
+            padding: "0 17% 0 17%",
           }}
         >
           <SpotifyPlayer
