@@ -72,13 +72,21 @@ app.post("/search", async (req, res) => {
     .then((data) => {
       res.send(
         data.body.tracks.items.map((track) => {
+          const smallestAlbumImage = track.album.images.reduce(
+            (smallest, image) => {
+              if (image.height < smallest.height) return image;
+              return smallest;
+            },
+            track.album.images[0]
+          );
+
           return {
             artist: track.artists[0].name,
             title: track.name,
             uri: track.uri,
-            albumUrl: track.album.images[0].url,
+            albumUrl: smallestAlbumImage.url,
           };
-        }),
+        })
       );
     })
     .catch((err) => {
