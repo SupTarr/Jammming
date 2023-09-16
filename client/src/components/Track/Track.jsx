@@ -30,6 +30,11 @@ const Track = (props) => {
   return (
     <div className="Track">
       <div className="Track-information">
+        <img
+          src={props.track.albumUrl}
+          alt="album cover"
+          style={{ height: "64px", width: "64px" }}
+        />
         <h3>{props.track.name}</h3>
         <p>{`${props.track.artist} | ${props.track.album}`}</p>
       </div>
