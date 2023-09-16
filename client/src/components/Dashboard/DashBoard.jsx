@@ -4,6 +4,7 @@ import SearchBar from "../SearchBar/SearchBar.jsx";
 import SearchResults from "../SearchResults/SearchResults.jsx";
 import Playlist from "../Playlist/Playlist.jsx";
 import useAuth from "../../useAuth.jsx";
+import Player from "../Player/Player.jsx";
 
 const backend = import.meta.env.VITE_BACKEND_URL;
 
@@ -36,7 +37,7 @@ function DashBoard({ code }) {
 
   const removeTrack = (track) => {
     setPlaylistTracks(
-      playlistTracks.filter((savedTrack) => savedTrack.id !== track.id),
+      playlistTracks.filter((savedTrack) => savedTrack.id !== track.id)
     );
   };
 
@@ -64,6 +65,7 @@ function DashBoard({ code }) {
           onNameChange={updatePlaylistName}
           onSave={savePlaylist}
         />
+        <Player accessToken={accessToken} />
       </div>
     </>
   );
