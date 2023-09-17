@@ -1,4 +1,5 @@
 import React from "react";
+import "./Player.css";
 import SpotifyPlayer from "react-spotify-player";
 
 function Player({ track }) {
@@ -7,20 +8,11 @@ function Player({ track }) {
   return (
     <>
       {isFullScreen ? (
-        <div style={{ position: "fixed", height: "100vh", top: "25%" }}>
+        <div className="Player-fullscreen">
           <SpotifyPlayer uri={track} view="list" theme="black" />
         </div>
       ) : (
-        <div
-          style={{
-            position: "fixed",
-            width: "100vw",
-            left: "0px",
-            bottom: "0px",
-            height: "80px",
-            padding: "0 17% 0 17%",
-          }}
-        >
+        <div className="Player-fixed-bottom">
           <SpotifyPlayer
             uri={track}
             size={{ width: "100%" }}

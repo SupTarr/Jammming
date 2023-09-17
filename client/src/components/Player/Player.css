@@ -1,0 +1,20 @@
+.Player-fullscreen {
+  position: fixed;
+  height: 100vh;
+  top: 25%;
+}
+
+.Player-fixed-bottom {
+  position: fixed;
+  width: 100vw;
+  left: 0px;
+  bottom: 0px;
+  height: 80px;
+  padding: 0 17% 0 17%;
+}
+
+@media only screen and (max-width: 600px) {
+  .Player-fixed-bottom {
+    padding: 0;
+  }
+}
