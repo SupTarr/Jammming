@@ -1,6 +1,5 @@
 import React from "react";
 import { BiPlay } from "react-icons/bi";
-import { MdLyrics } from "react-icons/md";
 import "./Track.css";
 
 const Track = (props) => {
@@ -49,9 +48,6 @@ const Track = (props) => {
       </div>
       <div className="play-icon" onClick={() => playTrack()}>
         <BiPlay />
-      </div>
-      <div className="lyric-icon" onClick={() => playTrack()}>
-        <MdLyrics />
       </div>
       {renderAction()}
     </div>
