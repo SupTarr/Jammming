@@ -1,10 +1,6 @@
 import "./SearchBar.css";
 
 const SearchBar = ({ onTermChange, onSearch }) => {
-  const handleTermChange = (event) => {
-    onTermChange(event.target.value);
-  };
-
   return (
     <form
       className="SearchBar"
@@ -15,7 +11,7 @@ const SearchBar = ({ onTermChange, onSearch }) => {
     >
       <input
         placeholder="Enter song, album, or artist"
-        onChange={handleTermChange}
+        onChange={(e) => onTermChange(e.target.value)}
       />
       <input type="submit" className="SearchButton" value="Search" />
     </form>
