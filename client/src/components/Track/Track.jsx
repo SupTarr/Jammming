@@ -2,54 +2,32 @@ import React from "react";
 import { BiPlay } from "react-icons/bi";
 import "./Track.css";
 
-const Track = (props) => {
-  const renderAction = () => {
-    if (props.isRemoval) {
-      return (
-        <button className="Track-action" onClick={() => removeTrack()}>
-          -
-        </button>
-      );
-    } else {
-      return (
-        <button className="Track-action" onClick={() => addTrack()}>
-          +
-        </button>
-      );
-    }
-  };
-
-  console.log(props.track);
-
-  const addTrack = () => {
-    return props.onAdd(props.track);
-  };
-
-  const playTrack = () => {
-    return props.onPlay(props.track?.uri);
-  };
-
-  const removeTrack = () => {
-    return props.onRemove(props.track);
-  };
-
+const Track = ({ track, onAdd, onPlay, onRemove, isRemoval }) => {
   return (
     <div className="Track">
       <div className="Track-information">
         <img
-          src={props.track.albumUrl}
+          src={track.albumUrl}
           alt="album cover"
           style={{ height: "64px", width: "64px" }}
         />
         <div className="Track-information-text">
-          <h3>{props.track.title}</h3>
-          <p>{`${props.track.artist} | ${props.track.album}`}</p>
+          <h3>{track.title}</h3>
+          <p>{`${track.artist} | ${track.album}`}</p>
         </div>
       </div>
-      <div className="play-icon" onClick={() => playTrack()}>
+      <div className="play-icon" onClick={() => onPlay(track?.uri)}>
         <BiPlay />
       </div>
-      {renderAction()}
+      {isRemoval ? (
+        <button className="Track-action" onClick={() => onRemove(track)}>
+          -
+        </button>
+      ) : (
+        <button className="Track-action" onClick={() => onAdd(track)}>
+          +
+        </button>
+      )}
     </div>
   );
 };
