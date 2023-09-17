@@ -98,6 +98,37 @@ app.get("/search", async (req, res) => {
     });
 });
 
+app.post("/save", async (req, res) => {
+  const spotifyApi = new SpotifyWebApi({
+    redirectUri: process.env.REDIRECT_URI,
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    accessToken: req.body.accessToken,
+  });
+
+  spotifyApi
+    .createPlaylist(req.body.playlistName)
+    .then((data) => {
+      console.log(data.id)
+      spotifyApi.addTracksToPlaylist(data.body.id, req.body.uris)
+        .then(() => {
+          res.json({
+            message: "Playlist created successfully",
+          });
+        })
+        .catch((err) => {
+          res.status(400).send({
+            message: err,
+          });
+        });
+    })
+    .catch((err) => {
+      res.status(400).send({
+        message: err,
+      });
+    });
+});
+
 app.get("/lyrics", async (req, res) => {
   const lyrics =
     (await lyricsFinder(req.query.artist, req.query.track)) ||
