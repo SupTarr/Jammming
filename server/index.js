@@ -109,12 +109,9 @@ app.post("/save", async (req, res) => {
   spotifyApi
     .createPlaylist(req.body.playlistName)
     .then((data) => {
-      console.log(data.id)
       spotifyApi.addTracksToPlaylist(data.body.id, req.body.uris)
         .then(() => {
-          res.json({
-            message: "Playlist created successfully",
-          });
+          res.sendStatus(201)
         })
         .catch((err) => {
           res.status(400).send({
