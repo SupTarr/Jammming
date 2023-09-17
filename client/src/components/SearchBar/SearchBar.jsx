@@ -14,10 +14,10 @@ const SearchBar = ({ onTermChange, onSearch }) => {
       }}
     >
       <input
-        placeholder="Enter A Song, Album, or Artist"
+        placeholder="Enter song, album, or artist"
         onChange={handleTermChange}
       />
-      <input type="submit" className="SearchButton" value="SEARCH" />
+      <input type="submit" className="SearchButton" value="Search" />
     </form>
   );
 };
