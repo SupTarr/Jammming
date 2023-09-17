@@ -19,9 +19,11 @@ function DashBoard({ code }) {
 
   const search = (term, accessToken) => {
     axios
-      .post(`${backend}search`, {
-        accessToken,
-        term,
+      .get(`${backend}search`, {
+        params: {
+          accessToken,
+          term,
+        },
       })
       .then((res) => {
         setSearchResults(res.data);
