@@ -28,6 +28,15 @@
   color: rgba(265, 265, 265, 0.5);
 }
 
+.lyric-icon {
+  display: flex;
+  padding: 0.25rem;
+}
+
+.lyric-icon:hover {
+  color: rgba(265, 265, 265, 0.5);
+}
+
 .Track-information {
   flex-grow: 1;
   display: flex;
