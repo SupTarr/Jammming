@@ -39,8 +39,10 @@ const Track = (props) => {
           alt="album cover"
           style={{ height: "64px", width: "64px" }}
         />
-        <h3>{props.track.name}</h3>
-        <p>{`${props.track.artist} | ${props.track.album}`}</p>
+        <div className="Track-information-text">
+          <h3>{props.track.title}</h3>
+          <p>{`${props.track.artist} | ${props.track.album}`}</p>
+        </div>
       </div>
       <div className="play-icon" onClick={() => playTrack()}>
         <BiPlay />
