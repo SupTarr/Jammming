@@ -39,12 +39,17 @@ function DashBoard({ code }) {
 
   const addTrack = (track) => {
     setSearchResults(searchResults.filter((result) => result.id !== track.id));
-    setPlaylistTracks([...playlistTracks, track]);
+    setPlaylistTracks(
+      [...playlistTracks, track].sort((a, b) => a.id.localeCompare(b.id))
+    );
   };
 
   const removeTrack = (track) => {
     setPlaylistTracks(
       playlistTracks.filter((savedTrack) => savedTrack.id !== track.id)
+    );
+    setSearchResults(
+      [...searchResults, track].sort((a, b) => a.id.localeCompare(b.id))
     );
   };
 
