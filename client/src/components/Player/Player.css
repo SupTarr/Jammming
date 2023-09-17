@@ -1,14 +1,16 @@
 .Player {
+  box-sizing: border-box;
   position: fixed;
-  width: 100vw;
+  width: calc(100vw - 34%);
   left: 0px;
   bottom: 0px;
-  height: 80px;
-  padding: 0 17% 0 17%;
+  height: 152px;
+  margin: 0 17% 0 17%;
 }
 
 @media only screen and (max-width: 600px) {
   .Player {
-    padding: 0;
+    margin: 0;
+    width: 100%;
   }
 }
