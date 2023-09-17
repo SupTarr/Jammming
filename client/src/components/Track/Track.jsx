@@ -20,6 +20,8 @@ const Track = (props) => {
     }
   };
 
+  console.log(props.track);
+
   const addTrack = () => {
     return props.onAdd(props.track);
   };
