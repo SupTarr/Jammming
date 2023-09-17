@@ -26,7 +26,7 @@ function DashBoard({ code }) {
         },
       })
       .then((res) => {
-        setSearchResults(res.data);
+        setSearchResults(res.data.sort((a, b) => a.id.localeCompare(b.id)));
       })
       .catch((err) => {
         console.log(err);
@@ -44,7 +44,7 @@ function DashBoard({ code }) {
 
   const removeTrack = (track) => {
     setPlaylistTracks(
-      playlistTracks.filter((savedTrack) => savedTrack.id !== track.id),
+      playlistTracks.filter((savedTrack) => savedTrack.id !== track.id)
     );
   };
 
@@ -62,6 +62,11 @@ function DashBoard({ code }) {
       .then(() => {
         setPlaylistName("New Playlist");
         setPlaylistTracks([]);
+        setSearchResults(
+          [...searchResults, ...playlistTracks].sort((a, b) =>
+            a.id.localeCompare(b.id)
+          )
+        );
       })
       .catch((err) => {
         console.log(err);
