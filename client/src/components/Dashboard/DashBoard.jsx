@@ -53,8 +53,19 @@ function DashBoard({ code }) {
   };
 
   const savePlaylist = () => {
-    setPlaylistName("New Playlist");
-    setPlaylistTracks([]);
+    axios
+      .post(`${backend}save`, {
+        accessToken: accessToken,
+        playlistName: playlistName,
+        uris: playlistTracks.map((track) => track.uri),
+      })
+      .then(() => {
+        setPlaylistName("New Playlist");
+        setPlaylistTracks([]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
