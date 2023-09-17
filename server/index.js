@@ -2,7 +2,6 @@ require("dotenv").config({ path: "./.env" });
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const lyricsFinder = require("lyrics-finder");
 const SpotifyWebApi = require("spotify-web-api-node");
 
 const app = express();
@@ -109,9 +108,10 @@ app.post("/save", async (req, res) => {
   spotifyApi
     .createPlaylist(req.body.playlistName)
     .then((data) => {
-      spotifyApi.addTracksToPlaylist(data.body.id, req.body.uris)
+      spotifyApi
+        .addTracksToPlaylist(data.body.id, req.body.uris)
         .then(() => {
-          res.sendStatus(201)
+          res.sendStatus(201);
         })
         .catch((err) => {
           res.status(400).send({

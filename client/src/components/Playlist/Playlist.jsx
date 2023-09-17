@@ -3,25 +3,28 @@ import "react-dom";
 import "./Playlist.css";
 import TrackList from "../TrackList/TrackList.jsx";
 
-const Playlist = (props) => {
-  const handleNameChange = (event) => {
-    props.onNameChange(event.target.value);
-  };
-
+const Playlist = ({
+  playlistName,
+  playlistTracks,
+  onPlay,
+  onRemove,
+  onNameChange,
+  onSave,
+}) => {
   return (
     <div className="Playlist">
       <input
-        value={props.playlistName}
-        onChange={handleNameChange}
+        value={playlistName}
+        onChange={(e) => onNameChange(e.target.value)}
         placeholder="New Playlist"
       />
       <TrackList
-        tracks={props.playlistTracks}
-        onPlay={props.onPlay}
-        onRemove={props.onRemove}
+        tracks={playlistTracks}
+        onPlay={onPlay}
+        onRemove={onRemove}
         isRemoval={true}
       />
-      <button className="Playlist-save" onClick={() => props.onSave()}>
+      <button className="Playlist-save" onClick={() => onSave()}>
         Save To Spotify
       </button>
     </div>
