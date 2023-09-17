@@ -59,16 +59,16 @@ app.post("/login", (req, res) => {
     });
 });
 
-app.post("/search", async (req, res) => {
+app.get("/search", async (req, res) => {
   const spotifyApi = new SpotifyWebApi({
     redirectUri: process.env.REDIRECT_URI,
     clientId: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    accessToken: req.body.accessToken,
+    accessToken: req.query.accessToken,
   });
 
   spotifyApi
-    .searchTracks(req.body.term)
+    .searchTracks(req.query.term)
     .then((data) => {
       res.send(
         data.body.tracks.items.map((track) => {
